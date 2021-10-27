@@ -28,6 +28,7 @@ class PycPacPoe:
     return index in range(0,9) and not self.is_position_taken(index)
   
   def turn(self):
+    print(f"Current player: {self.current_player()}")
     position = self.input_to_index(input("Input position (1-9): "))
     while not self.is_valid_move(position):
       print("Not a valid position. Please try again.")
@@ -62,6 +63,8 @@ class PycPacPoe:
     return 'X' if self.turn_count() % 2 == 1 else 'O'
 
   def play(self):
+    print("This is PvP tic-tac-toe")
+    self.display_board()
     while not self.is_over():
       self.turn()
     print("Game Complete")
@@ -69,7 +72,6 @@ class PycPacPoe:
       print(f"Congrats {self.winner()}")
     else:
       print("Tie")
-
 
 game = PycPacPoe()
 game.play()
