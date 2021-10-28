@@ -34,7 +34,6 @@ class PycPacPoe:
       print("Not a valid position. Please try again.")
       position = self.input_to_index(input("Input position (1-9): "))
 
-    print("before move")
     self.move(position, self.current_player())
     self.display_board()
 
