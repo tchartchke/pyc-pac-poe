@@ -100,18 +100,18 @@ class ThrycThracThroe:
   )
 
   def __init__(self):
-    self.board = [[[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']]]
-    # [[[' '] * 4] * 4] * 3
+    self.board = [[[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']]]
+    # self.board = [[['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']]]
 
   def display_board(self):
     format = f"""
- {self.board[0][0][0]} | {self.board[0][0][1]} | {self.board[0][0][2]} | {self.board[0][0][3]}      {self.board[1][0][0]} | {self.board[1][0][1]} | {self.board[1][0][2]} | {self.board[1][0][3]}      {self.board[2][0][0]} | {self.board[2][0][1]} | {self.board[2][0][2]} | {self.board[2][0][3]} 
----------------    ---------------    ---------------
- {self.board[0][1][0]} | {self.board[0][1][1]} | {self.board[0][1][2]} | {self.board[0][1][3]}      {self.board[1][1][0]} | {self.board[1][1][1]} | {self.board[1][1][2]} | {self.board[1][1][3]}      {self.board[2][1][0]} | {self.board[2][1][1]} | {self.board[2][1][2]} | {self.board[2][1][3]} 
----------------    ---------------    ---------------
- {self.board[0][2][0]} | {self.board[0][2][1]} | {self.board[0][2][2]} | {self.board[0][2][3]}      {self.board[1][2][0]} | {self.board[1][2][1]} | {self.board[1][2][2]} | {self.board[1][2][3]}      {self.board[2][2][0]} | {self.board[2][2][1]} | {self.board[2][2][2]} | {self.board[2][2][3]} 
----------------    ---------------    ---------------
- {self.board[0][3][0]} | {self.board[0][3][1]} | {self.board[0][3][2]} | {self.board[0][3][3]}      {self.board[1][3][0]} | {self.board[1][3][1]} | {self.board[1][3][2]} | {self.board[1][3][3]}      {self.board[2][3][0]} | {self.board[2][3][1]} | {self.board[2][3][2]} | {self.board[2][3][3]} """
+ {self.board[0][0][0]} | {self.board[0][0][1]} | {self.board[0][0][2]} | {self.board[0][0][3]}      {self.board[1][0][0]} | {self.board[1][0][1]} | {self.board[1][0][2]} | {self.board[1][0][3]}      {self.board[2][0][0]} | {self.board[2][0][1]} | {self.board[2][0][2]} | {self.board[2][0][3]}      {self.board[3][0][0]} | {self.board[3][0][1]} | {self.board[3][0][2]} | {self.board[3][0][3]} 
+---------------    ---------------    ---------------    ---------------
+ {self.board[0][1][0]} | {self.board[0][1][1]} | {self.board[0][1][2]} | {self.board[0][1][3]}      {self.board[1][1][0]} | {self.board[1][1][1]} | {self.board[1][1][2]} | {self.board[1][1][3]}      {self.board[2][1][0]} | {self.board[2][1][1]} | {self.board[2][1][2]} | {self.board[2][1][3]}      {self.board[3][1][0]} | {self.board[3][1][1]} | {self.board[3][1][2]} | {self.board[3][1][3]} 
+---------------    ---------------    ---------------    ---------------
+ {self.board[0][2][0]} | {self.board[0][2][1]} | {self.board[0][2][2]} | {self.board[0][2][3]}      {self.board[1][2][0]} | {self.board[1][2][1]} | {self.board[1][2][2]} | {self.board[1][2][3]}      {self.board[2][2][0]} | {self.board[2][2][1]} | {self.board[2][2][2]} | {self.board[2][2][3]}      {self.board[3][2][0]} | {self.board[3][2][1]} | {self.board[3][2][2]} | {self.board[3][2][3]} 
+---------------    ---------------    ---------------    ---------------
+ {self.board[0][3][0]} | {self.board[0][3][1]} | {self.board[0][3][2]} | {self.board[0][3][3]}      {self.board[1][3][0]} | {self.board[1][3][1]} | {self.board[1][3][2]} | {self.board[1][3][3]}      {self.board[2][3][0]} | {self.board[2][3][1]} | {self.board[2][3][2]} | {self.board[2][3][3]}      {self.board[3][3][0]} | {self.board[3][3][1]} | {self.board[3][3][2]} | {self.board[3][3][3]} """
     print(format)
 
   def input_to_coord(self, input):
@@ -121,20 +121,40 @@ class ThrycThracThroe:
     self.board[index[0]][index[2]][index[1]] = token
 
   def is_position_taken(self, index):
-    return False if self.board[index[0]][index[2]][index[1]] == ' ' else True
+    return False if self.board[index[0]][index[1]][index[2]] == ' ' else True
 
   def is_valid_move(self, index):
     return index[0] in range(0,3) and index[1] in range(0,4) and index[2] in range(0,4) and not self.is_position_taken(index)
+
+  def turn(self):
+    print(f"Current player: {self.current_player()}")
+    position = self.input_to_coord(input("Input position (eg. board 1, row 3, column 2 as 132): "))
+    while not self.is_valid_move(position):
+      print("Not a valid position. Please try again.")
+      position = self.input_to_coord(input("Input position (eg. board 1, row 3, column 2 as 132): "))
+    self.move(position, self.current_player())
+    self.display_board()
 
   def turn_count(self):
     i = 0
     for board in self.board:
       for x in board:
-        for y in board:
-          print(y)
-          i+=1
-    print(i)
+        for y in x:
+          if y == ' ': i+=1
+    return 48 - i
 
+  def current_player(self):
+    return 'X' if self.turn_count() % 2 == 0 else 'O'
+
+  def is_full(self):
+    return self.turn_count() > 47
+
+  def is_won(self):
+    for combos in self.WIN_COMBOS:
+      print( combos[0])
+      if self.board[combos[0][0]][combos[0][1]][combos[0][2]] == ' ':
+        print("foundya")
+      
 
 game = ThrycThracThroe()
 print("board, horizontal, then vertical")
@@ -142,5 +162,13 @@ game.display_board()
 loc = game.input_to_coord("113")
 game.move(loc)
 
+
 game.display_board()
-print(game.is_valid_move([0,3,-1]))
+print(game.is_valid_move([0,0,2]))
+
+# print(game.turn_count())
+# game.turn()
+print(game.is_full())
+# print(game.current_player())
+
+game.is_won()
