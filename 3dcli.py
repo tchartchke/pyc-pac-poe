@@ -101,17 +101,17 @@ class ThrycThracThroe:
 
   def __init__(self):
     self.board = [[[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']]]
-    # self.board = [[[' ', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']]]
 
   def display_board(self):
-    format = f"""
- {self.board[0][0][0]} | {self.board[0][0][1]} | {self.board[0][0][2]} | {self.board[0][0][3]}      {self.board[1][0][0]} | {self.board[1][0][1]} | {self.board[1][0][2]} | {self.board[1][0][3]}      {self.board[2][0][0]} | {self.board[2][0][1]} | {self.board[2][0][2]} | {self.board[2][0][3]}      {self.board[3][0][0]} | {self.board[3][0][1]} | {self.board[3][0][2]} | {self.board[3][0][3]} 
----------------    ---------------    ---------------    ---------------
- {self.board[0][1][0]} | {self.board[0][1][1]} | {self.board[0][1][2]} | {self.board[0][1][3]}      {self.board[1][1][0]} | {self.board[1][1][1]} | {self.board[1][1][2]} | {self.board[1][1][3]}      {self.board[2][1][0]} | {self.board[2][1][1]} | {self.board[2][1][2]} | {self.board[2][1][3]}      {self.board[3][1][0]} | {self.board[3][1][1]} | {self.board[3][1][2]} | {self.board[3][1][3]} 
----------------    ---------------    ---------------    ---------------
- {self.board[0][2][0]} | {self.board[0][2][1]} | {self.board[0][2][2]} | {self.board[0][2][3]}      {self.board[1][2][0]} | {self.board[1][2][1]} | {self.board[1][2][2]} | {self.board[1][2][3]}      {self.board[2][2][0]} | {self.board[2][2][1]} | {self.board[2][2][2]} | {self.board[2][2][3]}      {self.board[3][2][0]} | {self.board[3][2][1]} | {self.board[3][2][2]} | {self.board[3][2][3]} 
----------------    ---------------    ---------------    ---------------
- {self.board[0][3][0]} | {self.board[0][3][1]} | {self.board[0][3][2]} | {self.board[0][3][3]}      {self.board[1][3][0]} | {self.board[1][3][1]} | {self.board[1][3][2]} | {self.board[1][3][3]}      {self.board[2][3][0]} | {self.board[2][3][1]} | {self.board[2][3][2]} | {self.board[2][3][3]}      {self.board[3][3][0]} | {self.board[3][3][1]} | {self.board[3][3][2]} | {self.board[3][3][3]} """
+    format = f"""       (1)                (2)                (3)                (4)
+  1   2   3   4      1   2   3   4      1   2   3   4      1   2   3   4     
+1 {self.board[0][0][0]} | {self.board[0][0][1]} | {self.board[0][0][2]} | {self.board[0][0][3]}      {self.board[1][0][0]} | {self.board[1][0][1]} | {self.board[1][0][2]} | {self.board[1][0][3]}      {self.board[2][0][0]} | {self.board[2][0][1]} | {self.board[2][0][2]} | {self.board[2][0][3]}      {self.board[3][0][0]} | {self.board[3][0][1]} | {self.board[3][0][2]} | {self.board[3][0][3]} 
+ ---------------    ---------------    ---------------    ---------------
+2 {self.board[0][1][0]} | {self.board[0][1][1]} | {self.board[0][1][2]} | {self.board[0][1][3]}      {self.board[1][1][0]} | {self.board[1][1][1]} | {self.board[1][1][2]} | {self.board[1][1][3]}      {self.board[2][1][0]} | {self.board[2][1][1]} | {self.board[2][1][2]} | {self.board[2][1][3]}      {self.board[3][1][0]} | {self.board[3][1][1]} | {self.board[3][1][2]} | {self.board[3][1][3]} 
+ ---------------    ---------------    ---------------    ---------------
+3 {self.board[0][2][0]} | {self.board[0][2][1]} | {self.board[0][2][2]} | {self.board[0][2][3]}      {self.board[1][2][0]} | {self.board[1][2][1]} | {self.board[1][2][2]} | {self.board[1][2][3]}      {self.board[2][2][0]} | {self.board[2][2][1]} | {self.board[2][2][2]} | {self.board[2][2][3]}      {self.board[3][2][0]} | {self.board[3][2][1]} | {self.board[3][2][2]} | {self.board[3][2][3]} 
+ ---------------    ---------------    ---------------    ---------------
+4 {self.board[0][3][0]} | {self.board[0][3][1]} | {self.board[0][3][2]} | {self.board[0][3][3]}      {self.board[1][3][0]} | {self.board[1][3][1]} | {self.board[1][3][2]} | {self.board[1][3][3]}      {self.board[2][3][0]} | {self.board[2][3][1]} | {self.board[2][3][2]} | {self.board[2][3][3]}      {self.board[3][3][0]} | {self.board[3][3][1]} | {self.board[3][3][2]} | {self.board[3][3][3]} """
     print(format)
 
   def input_to_coord(self, input):
@@ -128,10 +128,10 @@ class ThrycThracThroe:
 
   def turn(self):
     print(f"Current player: {self.current_player()}")
-    position = self.input_to_coord(input("Input position (eg. board 1, row 3, column 2 as 132): "))
+    position = self.input_to_coord(input("Input position (eg. board 1, column 3, row 2 as 132): "))
     while not self.is_valid_move(position):
       print("Not a valid position. Please try again.")
-      position = self.input_to_coord(input("Input position (eg. board 1, row 3, column 2 as 132): "))
+      position = self.input_to_coord(input("Input position (eg. board 1, column 3, row 2 as 132): "))
     self.move(position, self.current_player())
     self.display_board()
 
@@ -176,16 +176,9 @@ class ThrycThracThroe:
       print("Tie")
 
 game = ThrycThracThroe()
-# loc = game.input_to_coord("113")
-# game.move(loc)
-
-
-# game.display_board()
-# print(game.is_valid_move([0,0,2]))
-
-# print(game.turn_count())
-# game.turn()
-# print(game.is_full())
-# print(game.current_player())
-
 game.play()
+
+
+# TODO:
+# something is wrong with move validations
+# error handling
