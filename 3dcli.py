@@ -101,7 +101,7 @@ class ThrycThracThroe:
 
   def __init__(self):
     self.board = [[[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']]]
-    # self.board = [[['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']]]
+    # self.board = [[[' ', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']], [['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X'], ['X', 'X', 'X', 'X']]]
 
   def display_board(self):
     format = f"""
@@ -124,7 +124,7 @@ class ThrycThracThroe:
     return False if self.board[index[0]][index[1]][index[2]] == ' ' else True
 
   def is_valid_move(self, index):
-    return index[0] in range(0,3) and index[1] in range(0,4) and index[2] in range(0,4) and not self.is_position_taken(index)
+    return index[0] in range(0,4) and index[1] in range(0,4) and index[2] in range(0,4) and not self.is_position_taken(index)
 
   def turn(self):
     print(f"Current player: {self.current_player()}")
@@ -151,24 +151,41 @@ class ThrycThracThroe:
 
   def is_won(self):
     for combos in self.WIN_COMBOS:
-      print( combos[0])
-      if self.board[combos[0][0]][combos[0][1]][combos[0][2]] == ' ':
-        print("foundya")
-      
+      if self.board[combos[0][0]][combos[0][1]][combos[0][2]] == self.board[combos[1][0]][combos[1][1]][combos[1][2]] == self.board[combos[2][0]][combos[2][1]][combos[2][2]] == self.board[combos[3][0]][combos[3][1]][combos[3][2]] != ' ':
+        return True
+    return False
+  
+  def is_draw(self):
+    return self.is_full() and not self.is_won()
+
+  def is_over(self):
+    return self.is_draw() or self.is_won()
+
+  def winner(self):
+    return 'X' if self.turn_count() % 2 == 1 else 'O'
+
+  def play(self):
+    print("This is PvP 4x4 3d tic-tac-toe")
+    self.display_board()
+    while not self.is_over():
+      self.turn()
+    print("Game Complete")
+    if self.is_won(): 
+      print(f"Congrats {self.winner()}")
+    else:
+      print("Tie")
 
 game = ThrycThracThroe()
-print("board, horizontal, then vertical")
-game.display_board()
-loc = game.input_to_coord("113")
-game.move(loc)
+# loc = game.input_to_coord("113")
+# game.move(loc)
 
 
-game.display_board()
-print(game.is_valid_move([0,0,2]))
+# game.display_board()
+# print(game.is_valid_move([0,0,2]))
 
 # print(game.turn_count())
 # game.turn()
-print(game.is_full())
+# print(game.is_full())
 # print(game.current_player())
 
-game.is_won()
+game.play()
