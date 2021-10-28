@@ -100,7 +100,8 @@ class ThrycThracThroe:
   )
 
   def __init__(self):
-    self.board = [[['x'] * 4] * 4] * 4
+    self.board = [[[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']], [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ']]]
+    # [[[' '] * 4] * 4] * 3
 
   def display_board(self):
     format = f"""
@@ -113,6 +114,33 @@ class ThrycThracThroe:
  {self.board[0][3][0]} | {self.board[0][3][1]} | {self.board[0][3][2]} | {self.board[0][3][3]}      {self.board[1][3][0]} | {self.board[1][3][1]} | {self.board[1][3][2]} | {self.board[1][3][3]}      {self.board[2][3][0]} | {self.board[2][3][1]} | {self.board[2][3][2]} | {self.board[2][3][3]} """
     print(format)
 
+  def input_to_coord(self, input):
+    return [int(input[0])-1, int(input[1])-1, int(input[2])-1]
+
+  def move(self, index, token = 'X'):
+    self.board[index[0]][index[2]][index[1]] = token
+
+  def is_position_taken(self, index):
+    return False if self.board[index[0]][index[2]][index[1]] == ' ' else True
+
+  def is_valid_move(self, index):
+    return index[0] in range(0,3) and index[1] in range(0,4) and index[2] in range(0,4) and not self.is_position_taken(index)
+
+  def turn_count(self):
+    i = 0
+    for board in self.board:
+      for x in board:
+        for y in board:
+          print(y)
+          i+=1
+    print(i)
+
+
 game = ThrycThracThroe()
+print("board, horizontal, then vertical")
+game.display_board()
+loc = game.input_to_coord("113")
+game.move(loc)
 
 game.display_board()
+print(game.is_valid_move([0,3,-1]))
